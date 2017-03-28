@@ -9,7 +9,13 @@
  */
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
+import {items, itemsIsLoading, itemsHasErrored} from './items';
 
-const reducers = {};
+const reducers = {
+	items,
+	itemsIsLoading,
+	itemsHasErrored
+};
+
 const combined = combineReducers(reducers);
 module.exports = combined;
