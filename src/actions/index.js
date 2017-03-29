@@ -38,10 +38,10 @@ function getPizzaData(){
 
 		(fetch(pizza_url))(pizza_query, {}, {}).then(function (results) {
 			dispatch(itemsIsLoading(false));
-		  if (results.errors) {
-		    return dispatch(itemsHasErrored(true));
-		  }
-		  return  dispatch(itemsFetchDataSuccess(results.data));
+			if (results.errors) {
+				return dispatch(itemsHasErrored(true));
+			}
+			return  dispatch(itemsFetchDataSuccess(results.data));
 		})
 	}
 };

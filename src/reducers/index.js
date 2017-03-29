@@ -7,16 +7,16 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-/* Populated by react-webpack-redux:reducer */
-import { combineReducers } from 'redux';
-import {items, itemsIsLoading, itemsHasErrored} from './items';
-import {cart} from './cart';
-const reducers = {
-	items,
-	itemsIsLoading,
-	itemsHasErrored,
-	cart
-};
+ /* Populated by react-webpack-redux:reducer */
+ import { combineReducers } from 'redux';
+ import {items, itemsIsLoading, itemsHasErrored} from './items';
+ import {cart} from './cart';
+ const reducers = {
+ 	items,
+ 	itemsIsLoading,
+ 	itemsHasErrored,
+ 	cart
+ };
 
-const combined = combineReducers(reducers);
-module.exports = combined;
+ const combined = combineReducers(reducers);
+ module.exports = combined;

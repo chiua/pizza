@@ -11,7 +11,7 @@ class AppComponent extends React.Component {
         <Menu></Menu>
         <Cart></Cart>
       </div>
-    );
+      );
   }
 }
 

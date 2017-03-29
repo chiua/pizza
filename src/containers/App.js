@@ -4,7 +4,7 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import React, {
+ import React, {
   Component,
   PropTypes
 } from 'react';
@@ -24,7 +24,7 @@ class App extends Component {
  * HINT: if you adjust the initial type of your reducer, you will also have to
  *       adjust it here.
  */
-App.propTypes = {
+ App.propTypes = {
   actions: PropTypes.shape({})
 };
 function mapStateToProps(state) { // eslint-disable-line no-unused-vars

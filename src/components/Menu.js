@@ -74,32 +74,32 @@ class Menu extends Component {
 		this.state.pizzas = pizzas;
 		return (
 			<div>
-				{itemsHasErrored ? 'errored' : ''}
-				{itemsIsLoading ? 'loading' : ''}
+			{itemsHasErrored ? 'errored' : ''}
+			{itemsIsLoading ? 'loading' : ''}
 
-				<form onSubmit={(e) => (this.handleSubmit(e))}>
-					<div style={{overflow:'hidden'}}>
+			<form onSubmit={(e) => (this.handleSubmit(e))}>
+			<div style={{overflow:'hidden'}}>
 
-						{this.state.pizzas.map((pizza, pizza_index) => (
-							<div key={pizza_index} style={{float: 'left', width: '200px'}}>
-								<input checked={this.state.selected_pizza == pizza_index} type='radio' onChange={(e) => (this.handlePizzaChange(e, pizza_index))} name='pizza' value={pizza.name} />{pizza.name} - ${pizza.basePrice} <br /> 
-									<h4>Toppings - maxToppings {pizza.maxToppings ? pizza.maxToppings : 'as much as you want'}</h4>
+			{this.state.pizzas.map((pizza, pizza_index) => (
+				<div key={pizza_index} style={{float: 'left', width: '200px'}}>
+				<input checked={this.state.selected_pizza == pizza_index} type='radio' onChange={(e) => (this.handlePizzaChange(e, pizza_index))} name='pizza' value={pizza.name} />{pizza.name} - ${pizza.basePrice} <br /> 
+				<h4>Toppings - maxToppings {pizza.maxToppings ? pizza.maxToppings : 'as much as you want'}</h4>
 
-									{pizza.toppings.map((topping_object, topping_index) => (
-										<div key={topping_index}>
-											<input disabled={pizza.disabled && !topping_object.defaultSelected} onChange={(e) => (this.handleToppingChange(e, topping_index, pizza_index))} type='checkbox' checked={topping_object.defaultSelected}  /> 
-											{topping_object.topping.name} - ${topping_object.topping.price}
-										</div>
-									))}
-							</div>
-						))}
+				{pizza.toppings.map((topping_object, topping_index) => (
+					<div key={topping_index}>
+					<input disabled={pizza.disabled && !topping_object.defaultSelected} onChange={(e) => (this.handleToppingChange(e, topping_index, pizza_index))} type='checkbox' checked={topping_object.defaultSelected}  /> 
+					{topping_object.topping.name} - ${topping_object.topping.price}
 					</div>
-					<input type='submit' value='add' />
-				</form>
+					))}
+				</div>
+				))}
+			</div>
+			<input type='submit' value='add' />
+			</form>
 
 			</div>
-		)
-	}	
+			)
+}	
 }
 
 const mapStateToProps = (state) => {

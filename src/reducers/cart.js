@@ -15,12 +15,12 @@ export function cart(state = {}, action){
 			//because deep copy isn't working, need to find a better solution
 			let copyPizza = JSON.parse(JSON.stringify(pizza));	
 			return Object.assign({}, state, copyPizza); 
-		case REMOVE_FROM_CART:
+			case REMOVE_FROM_CART:
 			let new_cart = Object.assign({},state);
 			delete new_cart[action.id];
 			return new_cart;
 		default:
 			return state;
+		}
 	}
-}
 
