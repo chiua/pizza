@@ -5,7 +5,9 @@ import {getPizzaData, addToCart} from '../actions';
 class Menu extends Component {
 	constructor(props){
 		super(props);
-		this.state = {};
+		this.state = {
+			pizzas:[]
+		};
 		this.handleSubmit.bind(this);
 		this.handleToppingChange.bind(this);
 		this.handlePizzaChange.bind(this);
@@ -16,10 +18,14 @@ class Menu extends Component {
 		this.props.fetchPizzaData();
 	}
 
+	componentWillReceiveProps(props){
+		//update the state in response to prop changes: https://facebook.github.io/react/docs/react-component.html#componentwillreceiveprops
+		this.setState({pizzas: props.pizzas});
+	}
+
 	handlePizzaChange(event, pizza_index){
 		this.setState({selected_pizza : pizza_index});
 	}
-
 
 	handleToppingChange(event, topping_index, pizza_index){
 		let pizzas = this.state.pizzas;
@@ -53,7 +59,6 @@ class Menu extends Component {
 
 			this.setState({pizzas});
 		}
-
 		event.preventDefault;
 	}
 
@@ -71,7 +76,6 @@ class Menu extends Component {
 
 	render() {
 		const {itemsHasErrored, itemsIsLoading, pizzas} = this.props;
-		this.state.pizzas = pizzas;
 		return (
 			<div>
 			{itemsHasErrored ? 'errored' : ''}
@@ -98,8 +102,8 @@ class Menu extends Component {
 			</form>
 
 			</div>
-			)
-}	
+		)
+	}	
 }
 
 const mapStateToProps = (state) => {
