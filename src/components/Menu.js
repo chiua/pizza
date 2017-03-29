@@ -13,7 +13,7 @@ class Menu extends Component {
 		this.handlePizzaChange.bind(this);
 	}
 
-	componentDidMount(){
+	componentWillMount(){
 		//get pizzas and prices
 		this.props.fetchPizzaData();
 	}
