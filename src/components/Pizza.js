@@ -4,19 +4,20 @@ import {connect} from 'react-redux';
 import {removeFromCart} from '../actions';
 
 class Pizza extends Component {
+	constructor(props){
+		super(props);
+		this.getPizzaPrice.bind(this);
+	}
 	
 	handleRemove(e){
 		const {pizza, remove_pizza} = this.props;
 		remove_pizza(pizza.id);
 	}
 
-	render() {
-
-		const {pizza : pizza_object, remove_pizza} = this.props;
-		const {pizza, id} = pizza_object;
-
+	getPizzaPrice(){
+		const {pizza : pizza_object} = this.props;
+		const {pizza} = pizza_object;
 		let price = new Decimal(pizza.basePrice);
-
 		let toppings = pizza.toppings;
 		for (let i = 0; i < toppings.length; i++){
 			if (toppings[i].defaultSelected){
@@ -24,6 +25,12 @@ class Pizza extends Component {
 				price = price.plus(topping_price);
 			}
 		}
+		return price;
+	}
+
+	render() {
+		const {pizza : pizza_object, remove_pizza} = this.props;
+		const {pizza, id} = pizza_object;
 
 		return (
 			<div style={{float: 'left', width: '200px', height: '200px', margin: '10px'}}>
@@ -38,7 +45,7 @@ class Pizza extends Component {
 				}	
 				</div>
 				))}
-			<div>Price - {price.toString()}</div>
+			<div>Price - {this.getPizzaPrice().toString()}</div>
 			<button onClick={this.handleRemove.bind(this)}>Delete</button>
 			</div>
 			);

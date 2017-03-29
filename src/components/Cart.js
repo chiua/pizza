@@ -29,15 +29,15 @@ class Cart extends Component {
 		const {cart} = this.props;
 		return (
 			<div>
-			<h4>Cart</h4>
-			<div style={{overflow:'hidden'}}>
-			{
-				Object.keys(cart).map((index) => (
-					<Pizza key={index} pizza={cart[index]}></Pizza>
+				<h4>Cart</h4>
+				<div style={{overflow:'hidden'}}>
+				{
+					Object.keys(cart).map((index) => (
+						<Pizza key={index} pizza={cart[index]}></Pizza>
 					))
-			}
-			</div>
-			<h4>Total - {this.getCartTotal()}</h4>
+				}
+				</div>
+				<h4>Total - {this.getCartTotal()}</h4>
 
 			</div>
 			);
