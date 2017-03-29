@@ -10,11 +10,12 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
 import {items, itemsIsLoading, itemsHasErrored} from './items';
-
+import {cart} from './cart';
 const reducers = {
 	items,
 	itemsIsLoading,
-	itemsHasErrored
+	itemsHasErrored,
+	cart
 };
 
 const combined = combineReducers(reducers);

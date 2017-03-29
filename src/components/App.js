@@ -1,6 +1,7 @@
 import React from 'react';
 import './app.css';
 import Menu from './menu';
+import Cart from './cart';
 
 class AppComponent extends React.Component {
 
@@ -8,6 +9,7 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <Menu></Menu>
+        <Cart></Cart>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import fetch from 'graphql-fetch';
 import { pizza_query, pizza_url, action_types} from './const';
-const {ITEMS_IS_LOADING, ITEMS_HAS_ERRORED, ITEMS_FETCH_DATA_SUCCESS} = action_types;
+const {ITEMS_IS_LOADING, ITEMS_HAS_ERRORED, ITEMS_FETCH_DATA_SUCCESS, ADD_TO_CART, REMOVE_FROM_CART} = action_types;
+import uuid from 'uuid';
 /* eslint-disable import/newline-after-import */
 /* Exports all the actions from a single point.
 
@@ -45,12 +46,28 @@ function getPizzaData(){
 	}
 };
 
+function addToCart(pizza){
+	return {
+		type: ADD_TO_CART,
+		pizza,
+		id:uuid()
+	}
+};
+
+function removeFromCart(id){
+	return {
+		type: REMOVE_FROM_CART,
+		id
+	}	
+};
 
 const actions = {
 	itemsIsLoading,
 	itemsHasErrored,
 	itemsFetchDataSuccess,
-	getPizzaData
+	getPizzaData,
+	addToCart,
+	removeFromCart
 };
 
 module.exports = actions;
